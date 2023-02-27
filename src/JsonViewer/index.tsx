@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import RecursiveItem from '../RecursiveItem';
 import '../styles/styles.css';
 import { JSONValue } from '../types';
 
@@ -7,20 +8,13 @@ interface IJsonViewerProps {
 }
 
 function JsonViewer({ json }: IJsonViewerProps) {
-  const [jsonData, setJsonData] = useState({});
-  console.log(jsonData);
-
-  useEffect(() => {
-    setJsonData(json);
-  });
-
-  const formattedJson = JSON.stringify(jsonData, undefined, 2);
   return (
-    <h1>
-      <pre>
-        {formattedJson}
-      </pre>
-    </h1>
+    <RecursiveItem
+      property={json}
+      propertyName="Root"
+      rootProperty
+    />
+
   );
 }
 
