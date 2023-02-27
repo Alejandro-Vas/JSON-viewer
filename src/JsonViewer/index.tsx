@@ -1,15 +1,20 @@
 import React from 'react';
-
+import RecursiveItem from '../RecursiveItem';
 import '../styles/styles.css';
+import { JSONValue } from '../types';
 
-function JsonViewer({ json }: any) {
-  const formattedJson = JSON.stringify(json, undefined, 2);
+interface IJsonViewerProps {
+  json: JSONValue
+}
+
+function JsonViewer({ json }: IJsonViewerProps) {
   return (
-    <h1>
-      <pre>
-        {formattedJson}
-      </pre>
-    </h1>
+    <RecursiveItem
+      property={json}
+      propertyName="Root"
+      rootProperty
+    />
+
   );
 }
 
