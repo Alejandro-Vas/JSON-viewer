@@ -1,2 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+.recursiveContainer {
+    width: fit-content;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 20px;
+    color: #666;    
+    font-size: 16px;
+}
+
+.recursivePropertyName {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.expandablePropertyName {
+    width: fit-content;
+    border: 1px solid black;
+    color: blue;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
 
 

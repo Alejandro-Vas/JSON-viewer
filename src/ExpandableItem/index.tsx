@@ -20,6 +20,7 @@ function ExpandableItem({ expanded, children, title }:IProps) {
         role="button"
         onKeyDown={handleToggleOpen}
         tabIndex={0}
+        className="expandablePropertyName"
       >
         {title}
 
@@ -29,7 +30,7 @@ function ExpandableItem({ expanded, children, title }:IProps) {
       {isOpen ? children : null}
 
       {React.Children.count(children) === 0 && isOpen
-        ? 'The list is empty!'
+        ? 'Empty'
         : null}
     </>
   );
