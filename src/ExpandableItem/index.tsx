@@ -31,9 +31,11 @@ function ExpandableItem({ expanded, children, title }:IProps) {
 
       {isOpen ? children : null}
 
-      {React.Children.count(children) === 0 && isOpen
-        ? 'Empty'
-        : null}
+      {React.Children.count(children) === 0 && isOpen && (
+        <div className="empty">
+          Empty
+        </div>
+      )}
     </>
   );
 }

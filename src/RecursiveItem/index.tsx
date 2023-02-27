@@ -21,7 +21,7 @@ function RecursiveItem({
 
   if (!property) {
     return (
-      <div className="recursiveContainer">
+      <div className="recursiveContainer empty">
         {emptyPropertyLabel}
       </div>
     );
