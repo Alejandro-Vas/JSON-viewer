@@ -1,0 +1,20 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "declaration": true,
+    "lib": ["dom", "es2017"],
+    "outDir": "dist",
+    "strict": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "esModuleInterop": true,
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "example"
+  ],
+}
