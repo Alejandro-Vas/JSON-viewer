@@ -21,6 +21,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "*",
     "lint-staged": "*",
@@ -41,7 +42,8 @@
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\"",
     "prettier:check": "prettier --list-different \"src/**/*.{ts,tsx}\"",
     "dev": "webpack serve --env development --open",
-    "build": "webpack --env production"
+    "build": "webpack --env production",
+    "lint": "eslint src example"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
