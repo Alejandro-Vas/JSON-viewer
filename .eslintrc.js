@@ -20,6 +20,10 @@ module.exports = {
     plugins: [
       'react',
       '@typescript-eslint',
+      "react",
+      "jsx-a11y",
+      "import",
+      "react-hooks",
     ],
     rules: {
       "import/prefer-default-export": 0,

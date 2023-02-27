@@ -2,10 +2,13 @@ import React from 'react';
 
 import '../styles/styles.css';
 
-function JsonViewer({ text }: { text:string }) {
+function JsonViewer({ json }: any) {
+  const formattedJson = JSON.stringify(json, undefined, 2);
   return (
     <h1>
-      {text}
+      <pre>
+        {formattedJson}
+      </pre>
     </h1>
   );
 }
