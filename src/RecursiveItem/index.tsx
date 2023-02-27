@@ -31,7 +31,9 @@ function RecursiveItem({
     return (
       <div className="recursiveContainer">
 
-        {propertyName}
+        <strong>
+          {propertyName}
+        </strong>
         :
         {' '}
 

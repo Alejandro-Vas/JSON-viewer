@@ -8,25 +8,22 @@ body {
     width: fit-content;
     border: 1px solid black;
     padding: 10px;
-    margin: 20px;
-    color: #666;    
+    margin: 20px;  
     font-size: 16px;
 }
 
-.recursivePropertyName {
-    color: black;
-    font-size: 14px;
+.expandablePropertyName {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    color: blue;
+    font-size: 16px;
     font-weight: bold;
+    cursor: pointer; 
 }
 
-.expandablePropertyName {
-    width: fit-content;
-    border: 1px solid black;
-    color: blue;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    
+.openSign {
+    font-size: 18px;
 }
 
 
