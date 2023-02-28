@@ -11,6 +11,10 @@ body {
     padding: 10px;
     margin: 20px;  
     font-size: 16px;
+
+    &.empty {
+        color: red;
+    }
 }
 
 .expandablePropertyName {
@@ -28,8 +32,22 @@ body {
     font-size: 20px;
 }
 
-.empty {
-    color: red;
+// TODO change colors
+.property {
+    &.number {
+        color: green;
+    }
+
+    &.boolean {
+        color: coral;
+
+    }
+
+    &.string {
+        color: deeppink;
+    }
 }
+
+
 
 

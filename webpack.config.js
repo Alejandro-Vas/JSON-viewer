@@ -34,8 +34,12 @@ module.exports = ({ development }) => ({
       },
       {
         test: /\.(scss|css)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
       },
     ],
   },

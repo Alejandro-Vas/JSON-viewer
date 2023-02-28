@@ -1,4 +1,4 @@
-import JsonViewer from './JsonViewer';
+import JsonViewer from './components/JsonViewer';
 
 export {
   JsonViewer,

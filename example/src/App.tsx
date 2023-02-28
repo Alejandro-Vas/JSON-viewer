@@ -1,10 +1,10 @@
 import React from 'react';
 import { JsonViewer } from '../../src';
-import json from './json.json';
+import exampleJson from './exampleJson.json';
 
 function App() {
   return (
-    <JsonViewer json={json} />
+    <JsonViewer json={exampleJson} />
   );
 }
 

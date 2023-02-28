@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import ExpandableItem from '../ExpandableItem';
-import { IJson } from '../types';
+import { IJson } from '../../types';
 
 interface IProps {
   property: number | string | boolean | IJson;
@@ -15,9 +15,12 @@ function RecursiveItem({
   emptyPropertyLabel = 'empty',
   rootProperty,
 }:IProps) {
-  const isPrimitive = typeof property === 'number'
-    || typeof property === 'string'
-    || typeof property === 'boolean';
+  const isNumber = typeof property === 'number';
+  const isString = typeof property === 'string';
+  const isBoolean = typeof property === 'boolean';
+  const isPrimitive = isNumber || isString || isBoolean;
+
+  const propertyClassName = (isNumber && 'number') || (isString && 'string') || (isBoolean && 'boolean') || '';
 
   if (!property) {
     return (
@@ -36,8 +39,9 @@ function RecursiveItem({
         </strong>
         :
         {' '}
-
-        {property.toString()}
+        <span className={`property ${propertyClassName}`}>
+          {property.toString()}
+        </span>
       </div>
     );
   }
