@@ -22,11 +22,11 @@ function ExpandableItem({ expanded, children, title }:IProps) {
         tabIndex={0}
         className="expandablePropertyName"
       >
-        {title}
-        {' '}
         <span className="openSign">
           {openSign}
         </span>
+
+        {title}
       </div>
 
       {isOpen ? children : null}
