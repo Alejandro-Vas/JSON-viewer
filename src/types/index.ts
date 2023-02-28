@@ -1,15 +1,7 @@
-type JSONValue =
-    | string
-    | number
-    | boolean
-    | { [x: string]: JSONValue }
-    | Array<JSONValue>;
-
-type IterableObject = {
-  [s: number]: number | string | boolean | IterableObject;
-};
+interface IJson {
+  [s: number]: number | string | boolean | IJson;
+}
 
 export {
-  JSONValue,
-  IterableObject,
+  IJson,
 };

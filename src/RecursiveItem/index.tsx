@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ExpandableItem from '../ExpandableItem';
-import type { IterableObject } from '../types';
+import { IJson } from '../types';
 
 interface IProps {
-  property: number | string | boolean | IterableObject;
+  property: number | string | boolean | IJson;
   propertyName: string;
   emptyPropertyLabel?: string;
   rootProperty?: boolean;
@@ -21,7 +21,7 @@ function RecursiveItem({
 
   if (!property) {
     return (
-      <div>
+      <div className="recursiveContainer empty">
         {emptyPropertyLabel}
       </div>
     );
@@ -29,19 +29,21 @@ function RecursiveItem({
 
   if (isPrimitive) {
     return (
-      <>
-        <div>
+      <div className="recursiveContainer">
+
+        <strong>
           {propertyName}
-          :
-          {' '}
-        </div>
+        </strong>
+        :
+        {' '}
+
         {property.toString()}
-      </>
+      </div>
     );
   }
 
   return (
-    <div>
+    <div className="recursiveContainer">
       <ExpandableItem
         title={propertyName}
         expanded={!!rootProperty}

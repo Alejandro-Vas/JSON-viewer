@@ -1,10 +1,10 @@
 import React from 'react';
 import RecursiveItem from '../RecursiveItem';
+import { IJson } from '../types';
 import '../styles/styles.css';
-import { JSONValue } from '../types';
 
 interface IJsonViewerProps {
-  json: JSONValue
+  json: IJson
 }
 
 function JsonViewer({ json }: IJsonViewerProps) {
