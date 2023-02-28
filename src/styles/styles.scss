@@ -35,16 +35,16 @@ body {
 // TODO change colors
 .property {
     &.number {
-        color: green;
+        color: red;
     }
 
     &.boolean {
-        color: coral;
+        color: brown;
 
     }
 
     &.string {
-        color: deeppink;
+        color: green;
     }
 }
 
