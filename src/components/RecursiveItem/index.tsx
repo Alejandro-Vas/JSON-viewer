@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ExpandableItem from '../ExpandableItem';
 import { IJson } from '../../types';
 
@@ -7,8 +7,6 @@ interface IProps {
   propertyName: string;
   emptyPropertyLabel?: string;
   rootProperty?: boolean;
-  depth: number
-  onDelete: ({ depth, propertyName }:{ depth: number, propertyName: string }) => void;
 }
 
 function RecursiveItem({
@@ -16,10 +14,7 @@ function RecursiveItem({
   propertyName,
   emptyPropertyLabel = 'empty',
   rootProperty,
-  depth,
-  onDelete,
 }:IProps) {
-  const newDepth = depth + 1;
   const isNumber = typeof property === 'number';
   const isString = typeof property === 'string';
   const isBoolean = typeof property === 'boolean';
@@ -47,13 +42,6 @@ function RecursiveItem({
         <span className={`property ${propertyClassName}`}>
           {property.toString()}
         </span>
-
-        <button
-          type="button"
-          onClick={() => onDelete({ propertyName, depth })}
-        >
-          X
-        </button>
       </div>
     );
   }
@@ -70,8 +58,6 @@ function RecursiveItem({
             key={index}
             property={prop}
             propertyName={Object.getOwnPropertyNames(property)[index]}
-            depth={newDepth}
-            onDelete={onDelete}
           />
         ))}
       </ExpandableItem>
