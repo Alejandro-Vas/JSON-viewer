@@ -17,10 +17,6 @@
   "exclude": [
     "node_modules",
     "dist",
+    "example"
   ],
-  "module": "commonjs",
-  "typeRoots": [
-    "node_modules/@types",
-    "src/types"
-  ]
 }
