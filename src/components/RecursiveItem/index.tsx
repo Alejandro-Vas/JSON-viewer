@@ -15,9 +15,10 @@ function RecursiveItem({
   emptyPropertyLabel = 'empty',
   rootProperty,
 }:IProps) {
-  const isPrimitive = typeof property === 'number'
-    || typeof property === 'string'
-    || typeof property === 'boolean';
+  const isNumber = typeof property === 'number';
+  const isString = typeof property === 'string';
+  const isBoolean = typeof property === 'boolean';
+  const isPrimitive = isNumber || isString || isBoolean;
 
   if (!property) {
     return (

@@ -23,7 +23,7 @@ module.exports = ({ development }) => ({
     clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss'],
   },
   module: {
     rules: [
@@ -34,8 +34,12 @@ module.exports = ({ development }) => ({
       },
       {
         test: /\.(scss|css)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
       },
     ],
   },

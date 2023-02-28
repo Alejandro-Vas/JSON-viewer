@@ -1,7 +1,7 @@
 import React from 'react';
 import RecursiveItem from '../RecursiveItem';
 import { IJson } from '../../types';
-import '../../styles/styles.css';
+import '../../styles/styles.scss';
 
 interface IJsonViewerProps {
   json: IJson
