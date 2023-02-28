@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExpandableItem from '../ExpandableItem';
-import { IJson } from '../types';
+import { IJson } from '../../types';
 
 interface IProps {
   property: number | string | boolean | IJson;
