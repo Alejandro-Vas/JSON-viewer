@@ -1,5 +1,5 @@
 {
-  "name": "json-viewer",
+  "name": "json-viewer-react",
   "version": "1.0",
   "description": "json-viewer react",
   "main": "dist/index.js",
@@ -61,7 +61,7 @@
     "JSON",
     "JSON viewer"
   ],
-  "author": " <zended@yandex.ru>",
+  "author": "Alejandro-Vas",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Alejandro-Vas/JSON-viewer/issues"
