@@ -19,6 +19,7 @@ module.exports = ({ development }) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
+    libraryTarget: 'commonjs',
     clean: true,
   },
   resolve: {
@@ -39,6 +40,7 @@ module.exports = ({ development }) => ({
           "sass-loader",
         ],
         exclude: /node_modules/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -50,6 +52,7 @@ module.exports = ({ development }) => ({
     },
     'react-dom': {
       commonjs: 'react-dom',
+      commonjs2: 'react-dom',
       amd: 'ReactDOM',
       root: 'ReactDOM',
     },
