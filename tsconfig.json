@@ -18,5 +18,9 @@
     "node_modules",
     "dist",
   ],
-  "module": "commonjs"
+  "module": "commonjs",
+  "typeRoots": [
+    "node_modules/@types",
+    "src/types"
+  ]
 }
