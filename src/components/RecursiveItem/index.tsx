@@ -5,32 +5,27 @@ import { IJson } from '../../types';
 interface IProps {
   property: number | string | boolean | IJson;
   propertyName: string;
-  emptyPropertyLabel?: string;
   rootProperty?: boolean;
 }
 
 function RecursiveItem({
   property,
   propertyName,
-  emptyPropertyLabel = 'empty',
   rootProperty,
 }:IProps) {
   const isNumber = typeof property === 'number';
   const isString = typeof property === 'string';
   const isBoolean = typeof property === 'boolean';
   const isPrimitive = isNumber || isString || isBoolean;
+  const isNull = property === null;
 
-  const propertyClassName = (isNumber && 'number') || (isString && 'string') || (isBoolean && 'boolean') || '';
+  const propertyClassName = (isNumber && 'number')
+   || (isString && 'string')
+    || (isBoolean && 'boolean')
+      || (isNull && 'string')
+        || '';
 
-  if (!property) {
-    return (
-      <div className="recursiveContainer empty">
-        {emptyPropertyLabel}
-      </div>
-    );
-  }
-
-  if (isPrimitive) {
+  if (isPrimitive || isNull) {
     return (
       <div className="recursiveContainer">
 
@@ -40,7 +35,7 @@ function RecursiveItem({
         :
         {' '}
         <span className={`property ${propertyClassName}`}>
-          {property.toString()}
+          {String(property)}
         </span>
       </div>
     );

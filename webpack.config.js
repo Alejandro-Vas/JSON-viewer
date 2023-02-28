@@ -19,7 +19,6 @@ module.exports = ({ development }) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs',
     clean: true,
   },
   resolve: {
