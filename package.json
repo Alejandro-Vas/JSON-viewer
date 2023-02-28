@@ -45,7 +45,7 @@
     "prettier:check": "prettier --list-different \"src/**/*.{ts,tsx}\"",
     "dev": "webpack serve --env development --open",
     "build": "webpack --env production",
-    "lint": "eslint src example"
+    "lint": "eslint src"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
