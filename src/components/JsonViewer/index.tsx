@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RecursiveItem from '../RecursiveItem';
 import { IJson } from '../../types';
 import '../../styles/styles.scss';
@@ -8,11 +8,20 @@ interface IJsonViewerProps {
 }
 
 function JsonViewer({ json }: IJsonViewerProps) {
+  const [jsonState, setJsonState] = useState(json);
+
+  const onDelete = (payload:{ depth: number, propertyName: string }) => {
+    console.log(payload);
+  };
+
+  const depth = 0;
   return (
     <RecursiveItem
-      property={json}
+      property={jsonState}
       propertyName="Root"
       rootProperty
+      depth={depth}
+      onDelete={onDelete}
     />
   );
 }
