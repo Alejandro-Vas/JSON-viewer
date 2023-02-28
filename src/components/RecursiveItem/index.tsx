@@ -20,6 +20,8 @@ function RecursiveItem({
   const isBoolean = typeof property === 'boolean';
   const isPrimitive = isNumber || isString || isBoolean;
 
+  const propertyClassName = (isNumber && 'number') || (isString && 'string') || (isBoolean && 'boolean') || '';
+
   if (!property) {
     return (
       <div className="recursiveContainer empty">
@@ -37,9 +39,11 @@ function RecursiveItem({
         </strong>
         :
         {' '}
-
-        {property.toString()}
+        <span className={`property ${propertyClassName}`}>
+          {property.toString()}
+        </span>
       </div>
+
     );
   }
 
