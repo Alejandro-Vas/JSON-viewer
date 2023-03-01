@@ -63,14 +63,16 @@ function RecursiveItem({
         title={propertyName}
         expanded={!!rootProperty}
       >
-        {Object.values(property).map((prop, index) => (
-          <RecursiveItem
-              // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            property={prop}
-            propertyName={Object.getOwnPropertyNames(property)[index]}
-          />
-        ))}
+        {Object.values(property).map((prop, index) => {
+          const propName = Object.getOwnPropertyNames(property)[index];
+          return (
+            <RecursiveItem
+              key={propName}
+              property={prop}
+              propertyName={propName}
+            />
+          );
+        })}
       </ExpandableItem>
     </div>
   );
