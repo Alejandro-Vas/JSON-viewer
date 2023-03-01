@@ -1,43 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface IProps {
   title: string;
-  expanded?: boolean;
+  expanded?: boolean ;
   children?: React.ReactNode
 }
 
-function ExpandableItem({ expanded, children, title }:IProps) {
-  const [isOpen, setIsOpen] = useState(expanded);
+interface IState {
+  isOpen: boolean | undefined
+}
 
-  const handleToggleOpen = () => setIsOpen((prev) => !prev);
+class ExpandableItem extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    const { expanded } = this.props;
+    this.state = {
+      isOpen: expanded,
+    };
+  }
 
-  const openSign = isOpen ? '-' : '+';
+  handleToggleOpen = () => {
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+  };
 
-  return (
-    <>
-      <div
-        onClick={handleToggleOpen}
-        role="button"
-        onKeyDown={handleToggleOpen}
-        tabIndex={0}
-        className="expandablePropertyName"
-      >
-        <span className="openSign">
-          {openSign}
-        </span>
+  render() {
+    const { isOpen } = this.state;
+    const { children, title } = this.props;
+    const openSign = isOpen ? '-' : '+';
+    return (
+      <div>
+        <div
+          onClick={this.handleToggleOpen}
+          role="button"
+          onKeyDown={this.handleToggleOpen}
+          tabIndex={0}
+          className="expandablePropertyName"
+        >
+          <span className="openSign">
+            {openSign}
+          </span>
 
-        {title}
-      </div>
+          {title}
+        </div>
 
-      {isOpen ? children : null}
+        {isOpen ? children : null}
 
-      {React.Children.count(children) === 0 && isOpen && (
+        {React.Children.count(children) === 0 && isOpen && (
         <div className="recursiveContainer empty">
           Empty
         </div>
-      )}
-    </>
-  );
+        )}
+      </div>
+    );
+  }
 }
 
 export default ExpandableItem;
