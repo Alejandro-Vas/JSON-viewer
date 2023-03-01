@@ -2,6 +2,12 @@ import React from 'react';
 import ExpandableItem from '../ExpandableItem';
 import { IJson } from '../../types';
 
+const primitives = {
+  STRING: 'string',
+  NUMBER: 'number',
+  BOOLEAN: 'boolean',
+};
+
 interface IProps {
   property: number | string | boolean | IJson;
   propertyName: string;
@@ -13,28 +19,38 @@ function RecursiveItem({
   propertyName,
   rootProperty,
 }:IProps) {
-  const isNumber = typeof property === 'number';
-  const isString = typeof property === 'string';
-  const isBoolean = typeof property === 'boolean';
+  const { STRING, NUMBER, BOOLEAN } = primitives;
+
+  const isNumber = typeof property === NUMBER;
+  const isString = typeof property === STRING;
+  const isBoolean = typeof property === BOOLEAN;
   const isPrimitive = isNumber || isString || isBoolean;
   const isNull = property === null;
 
-  const propertyClassName = (isNumber && 'number')
-   || (isString && 'string')
-    || (isBoolean && 'boolean')
-      || (isNull && 'string')
-        || '';
+  const getPropertyClassName = () => {
+    switch (typeof property) {
+      case NUMBER:
+        return NUMBER;
+      case STRING:
+        return STRING;
+      case BOOLEAN:
+        return BOOLEAN;
+      default:
+        return '';
+    }
+  };
 
   if (isPrimitive || isNull) {
     return (
       <div className="recursiveContainer">
-
         <strong>
           {propertyName}
         </strong>
+
         :
         {' '}
-        <span className={`property ${propertyClassName}`}>
+
+        <span className={getPropertyClassName()}>
           {String(property)}
         </span>
       </div>
@@ -47,14 +63,16 @@ function RecursiveItem({
         title={propertyName}
         expanded={!!rootProperty}
       >
-        {Object.values(property).map((prop, index) => (
-          <RecursiveItem
-              // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            property={prop}
-            propertyName={Object.getOwnPropertyNames(property)[index]}
-          />
-        ))}
+        {Object.values(property).map((prop, index) => {
+          const propName = Object.getOwnPropertyNames(property)[index];
+          return (
+            <RecursiveItem
+              key={propName}
+              property={prop}
+              propertyName={propName}
+            />
+          );
+        })}
       </ExpandableItem>
     </div>
   );

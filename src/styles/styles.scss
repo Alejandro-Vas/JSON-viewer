@@ -13,10 +13,6 @@ body {
     font-size: 16px;
 }
 
-.empty {
-    color: red;
-}
-
 .expandablePropertyName {
     display: flex;
     align-items: center;
@@ -32,21 +28,20 @@ body {
     font-size: 20px;
 }
 
-// TODO change colors
-.property {
-    &.number {
-        color: red;
-    }
-
-    &.boolean {
-        color: brown;
-
-    }
-
-    &.string {
-        color: green;
-    }
+.number,
+.empty {
+    color: red;
 }
+
+.boolean {
+    color: brown;
+
+}
+
+.string {
+    color: green;
+}
+
 
 
 

@@ -13,7 +13,9 @@ interface IState {
 class ExpandableItem extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
+
     const { expanded } = this.props;
+
     this.state = {
       isOpen: expanded,
     };
@@ -26,15 +28,17 @@ class ExpandableItem extends React.Component<IProps, IState> {
   render() {
     const { isOpen } = this.state;
     const { children, title } = this.props;
+
     const openSign = isOpen ? '-' : '+';
+
     return (
       <div>
         <div
           onClick={this.handleToggleOpen}
           role="button"
-          onKeyDown={this.handleToggleOpen}
-          tabIndex={0}
           className="expandablePropertyName"
+          tabIndex={0}
+          onKeyDown={() => {}}
         >
           <span className="openSign">
             {openSign}
