@@ -15,6 +15,9 @@
 
 ✓ zero dependencies
 
+## Demo
+https://jade-hamster-a6833c.netlify.app
+
 
 ## Installing
 ```js
