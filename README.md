@@ -6,9 +6,13 @@
 
 ## Features
 ✓ view JSON as tree
+
 ✓ expanding an collapsing properties
+
 ✓ primitive properties colorization
+
 ✓ casting `null` type to `string`
+
 ✓ zero dependencies
 
 
