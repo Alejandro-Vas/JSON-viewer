@@ -12,10 +12,15 @@ module.exports = ({ development }) => ({
   entry: development ? './example/src/index.tsx' : './src/index.tsx',
   devtool: development ? 'inline-source-map' : false,
   mode: development ? 'development' : 'production',
-  optimization: !development ? {
-    minimize: true,
-    usedExports: true,
-  } : {},
+  optimization: !development
+   ?
+    {
+      minimize: false,
+      usedExports: true,
+    } 
+  : {
+      minimize: false
+    },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
